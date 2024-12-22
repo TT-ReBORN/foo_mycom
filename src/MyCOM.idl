@@ -1,0 +1,42 @@
+/////////////////////////////////////////////////////////////////////////////////
+// * FB2K Component: COM Automation and ActiveX Interface                    * //
+// * Description:    MyCOM Type Library File                                 * //
+// * Author:         TT                                                      * //
+// * Website:        https://github.com/TT-ReBORN/Georgia-ReBORN             * //
+// * Version:        0.1                                                     * //
+// * Dev. started:   12-12-2024                                              * //
+// * Last change:    22-12-2024                                              * //
+/////////////////////////////////////////////////////////////////////////////////
+
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+
+[
+	object,
+	uuid(B2C3D4E5-F678-40A1-8234-6789ABCDEF01), // UUID for IMyCOM interface
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IMyCOM : IDispatch {
+	// Define your methods here
+	HRESULT PrintMessage();
+};
+
+[
+	uuid(A1B2C3D4-E5F6-4780-9234-56789ABCDEF1), // UUID for MyCOMLib
+	version(1.0),
+]
+library MyCOMLib {
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(C3D4E5F6-4780-91B2-3456-789ABCDEFF02) // UUID for MyCOM coclass
+	]
+	coclass MyCOM {
+		[default] interface IMyCOM;
+	};
+};
