@@ -163,13 +163,13 @@
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>MyComponent_PCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <TreatSpecificWarningsAsErrors>4715</TreatSpecificWarningsAsErrors>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\lib\MinHook\include\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\lib\MinHook\include\;$(ProjectDir)..\src\Precompile\;$(ProjectDir)..\src\API\;$(ProjectDir)..\src\Main\;$(ProjectDir)..\src\Resource\</AdditionalIncludeDirectories>
       <FloatingPointModel>Fast</FloatingPointModel>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -184,9 +184,12 @@
       <AdditionalLibraryDirectories>$(ProjectDir)..\lib\MinHook\MinHookLib\</AdditionalLibraryDirectories>
     </Link>
     <Midl>
-      <OutputDirectory>$(ProjectDir)..\src\</OutputDirectory>
+      <OutputDirectory>$(SolutionDir)$(Platform)\$(Configuration)\</OutputDirectory>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
     </Midl>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)$(Platform)\$(Configuration)\</AdditionalIncludeDirectories>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -194,13 +197,13 @@
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>MyComponent_PCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <TreatSpecificWarningsAsErrors>4715</TreatSpecificWarningsAsErrors>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\lib\MinHook\include\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\lib\MinHook\include\;$(ProjectDir)..\src\Precompile\;$(ProjectDir)..\src\API\;$(ProjectDir)..\src\Main\;$(ProjectDir)..\src\Resource\</AdditionalIncludeDirectories>
       <FloatingPointModel>Fast</FloatingPointModel>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -261,7 +264,7 @@
     <ClCompile>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>MyComponent_PCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <AdditionalOptions>/d2notypeopt %(AdditionalOptions)</AdditionalOptions>
@@ -269,10 +272,10 @@
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <StringPooling>true</StringPooling>
       <OmitFramePointers>true</OmitFramePointers>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\lib\MinHook\include\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\lib\MinHook\include\;$(ProjectDir)..\src\Precompile\;$(ProjectDir)..\src\API\;$(ProjectDir)..\src\Main\;$(ProjectDir)..\src\Resource\</AdditionalIncludeDirectories>
       <FloatingPointModel>Fast</FloatingPointModel>
       <PreprocessorDefinitions>NDEBUG;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -289,15 +292,18 @@
       <AdditionalLibraryDirectories>$(ProjectDir)..\lib\MinHook\MinHookLib\</AdditionalLibraryDirectories>
     </Link>
     <Midl>
-      <OutputDirectory>$(ProjectDir)..\src\</OutputDirectory>
+      <OutputDirectory>$(SolutionDir)$(Platform)\$(Configuration)\</OutputDirectory>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
     </Midl>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)$(Platform)\$(Configuration)\</AdditionalIncludeDirectories>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>MyComponent_PCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <AdditionalOptions>/d2notypeopt %(AdditionalOptions)</AdditionalOptions>
@@ -305,10 +311,10 @@
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <StringPooling>true</StringPooling>
       <OmitFramePointers>true</OmitFramePointers>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\lib\MinHook\include\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\lib\MinHook\include\;$(ProjectDir)..\src\Precompile\;$(ProjectDir)..\src\API\;$(ProjectDir)..\src\Main\;$(ProjectDir)..\src\Resource\</AdditionalIncludeDirectories>
       <FloatingPointModel>Fast</FloatingPointModel>
       <PreprocessorDefinitions>NDEBUG;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -379,27 +385,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\initquit.cpp" />
-    <ClCompile Include="..\src\main.cpp" />
-    <ClCompile Include="..\src\MyCOM.cpp" />
-    <ClCompile Include="..\src\PCH.cpp">
+    <ClCompile Include="..\src\API\MyCOM.cpp" />
+    <ClCompile Include="..\src\Main\MyComponent.cpp" />
+    <ClCompile Include="..\src\Main\MyComponent_Main.cpp" />
+    <ClCompile Include="..\src\Main\MyComponent_PCH.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64EC'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM64EC'">Create</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\MyCOM.h" />
-    <ClInclude Include="..\src\resource.h" />
-    <ClInclude Include="..\src\stdafx.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="..\src\resource.rc" />
+    <ClInclude Include="..\src\API\MyCOM.h" />
+    <ClInclude Include="..\src\Main\MyComponent.h" />
+    <ClInclude Include="..\src\Main\MyComponent_Main.h" />
+    <ClInclude Include="..\src\Main\MyComponent_PCH.h" />
+    <ClInclude Include="..\src\Resource\resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\lib\sdk\libPPUI\libPPUI.vcxproj">
@@ -419,7 +420,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="..\src\MyCOM.idl" />
+    <Midl Include="..\src\API\MyCOM.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\src\Resource\resource.rc" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Manifest>
@@ -430,9 +434,12 @@
       <AdditionalLibraryDirectories>$(ProjectDir)..\lib\MinHook\MinHookLib\</AdditionalLibraryDirectories>
     </Link>
     <Midl>
-      <OutputDirectory>$(ProjectDir)..\src\</OutputDirectory>
+      <OutputDirectory>$(SolutionDir)$(Platform)\$(Configuration)\</OutputDirectory>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
     </Midl>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)$(Platform)\$(Configuration)\</AdditionalIncludeDirectories>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Manifest>
@@ -450,9 +457,12 @@
     </Link>
     <Midl />
     <Midl>
-      <OutputDirectory>$(ProjectDir)..\src\</OutputDirectory>
+      <OutputDirectory>$(SolutionDir)$(Platform)\$(Configuration)\</OutputDirectory>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
     </Midl>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)$(Platform)\$(Configuration)\</AdditionalIncludeDirectories>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

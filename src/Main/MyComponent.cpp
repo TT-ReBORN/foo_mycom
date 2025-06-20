@@ -1,20 +1,26 @@
 /////////////////////////////////////////////////////////////////////////////////
 // * FB2K Component: COM Automation and ActiveX Interface                    * //
-// * Description:    MyCOM Main Source File                                  * //
+// * Description:    MyComponent Source File                                 * //
 // * Author:         TT                                                      * //
-// * Website:        https://github.com/TT-ReBORN/Georgia-ReBORN             * //
-// * Version:        0.1                                                     * //
+// * Website:        https://github.com/TT-ReBORN/foo_mycom                  * //
+// * Version:        0.2                                                     * //
 // * Dev. started:   12-12-2024                                              * //
 // * Last change:    22-12-2024                                              * //
 /////////////////////////////////////////////////////////////////////////////////
 
 
-#include "stdafx.h"
+#include "MyComponent_PCH.h"
+#include "MyCOM.h"
+#include "MyComponent.h"
 
 
+/////////////////////////
+// * COMPONENT SETUP * //
+/////////////////////////
+#pragma region Component Setup
 // Declaration of your component's version information
 DECLARE_COMPONENT_VERSION(
-	"MyCOM", "0.1", "COM Automation and ActiveX Interface by TT.\n\n"
+	"MyCOM", "0.2", "COM Automation and ActiveX Interface by TT.\n\n"
 	"This component is a template implementation for COM automation\n"
 	"with ActiveX. It allows for seamless integration and interaction\n"
 	"with COM objects in your scripts using either registration-free COM\n"
@@ -39,3 +45,31 @@ VALIDATE_COMPONENT_FILENAME("foo_mycom.dll");
 
 // Activate cfg_var downgrade functionality if enabled. Relevant only when cycling from newer FOOBAR2000_TARGET_VERSION to older.
 FOOBAR2000_IMPLEMENT_CFG_VAR_DOWNGRADE;
+#pragma endregion
+
+
+/////////////////////////////
+// * MAIN INITIALIZATION * //
+/////////////////////////////
+#pragma region Main Initialization
+void MyComponent::InitMyComponent() {
+	mainHwnd = core_api::get_main_window();
+
+	if (!mainHwnd) return;
+
+	myComponentMain = std::make_unique<MyComponentMain>(mainHwnd);
+	// MyComponentMain init implementation
+}
+
+void MyComponent::QuitMyComponent() {
+	// MyComponentMain cleanup implementation
+	myComponentMain.reset();
+	MyCOM::QuitMyCOM();
+}
+
+namespace {
+	FB2K_ON_INIT_STAGE(MyCOM::InitMyCOM, init_stages::after_config_read);
+	FB2K_ON_INIT_STAGE(MyComponent::InitMyComponent, init_stages::after_ui_init);
+	FB2K_RUN_ON_QUIT(MyComponent::QuitMyComponent);
+}
+#pragma endregion
